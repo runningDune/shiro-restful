@@ -1,5 +1,86 @@
 spring:
  profiles:
   active: dev
+ application:
+    name: shiro-redis
 server:
-  port: 8099
+  port: 8098
+
+
+
+# datasource:
+#  url: jdbc:mysql://192.168.3.5:3506/ydzh?useSSL=false&useUnicode=true&characterEncoding=utf-8
+#  username: root
+#  password: 123456
+#  driver-class-name: com.mysql.jdbc.Driver
+#  druid:
+#   initial-size: 2
+#   min-idle: 2
+#   max-active: 20
+#   test-on-borrow: true
+#   pool-prepared-statements: true
+#   max-pool-prepared-statement-per-connection-size: 5
+#   async-close-connection-enable: true
+
+# datasource:
+#  url: jdbc:mysql://192.168.3.64:3306/shrio_restful?useSSL=false&useUnicode=true&characterEncoding=utf-8
+#  username: root
+#  password: 123456
+#  type: com.alibaba.druid.pool.DruidDataSource
+#  driver-class-name: com.mysql.jdbc.Driver
+#
+#
+#  druid:
+#   initial-size: 2
+#   min-idle: 2
+#   max-active: 20
+#   test-on-borrow: true
+#   pool-prepared-statements: true
+#   max-pool-prepared-statement-per-connection-size: 5
+#   async-close-connection-enable: true
+#  datasource:
+#   driver-class-name: com.mysql.jdbc.Driver
+#   url: jdbc:mysql://localhost:3306/spring_shiro?useUnicode=true&amp;characterEncoding=UTF-8
+#   username: root
+#   password: root
+#   type: com.alibaba.druid.pool.DruidDataSource
+#  jpa:
+#   show-sql: true
+#   hibernate:
+#    ddl-auto: update
+#  http:
+#   encoding:
+#    charset: utf-8
+#    enabled: true
+
+#mybatis 逆向生成工具配置
+#mybatis
+mybatis:
+ type-aliases-package: com.example.shiro_restful.model
+ mapper-locations: classpath*:mapper/*.xml
+ # classpath:com/ydzh/microservices/databaseserver/mapper/*.xml
+
+#mapper
+#mappers 多个接口时逗号隔开
+mapper:
+ mappers: com.example.shiro_restful.utils.MyMapper
+
+
+#eureka
+# instance
+# preferIpAddress=true
+#eureka.instance.instance-id=${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+#eureka.instance.hostname=${spring.application.name}
+#serverZuul=http://192.168.3.5:8080/
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://192.168.3.5:7667/eureka/
+
+
+ instance:
+  preferIpAddress: true
+  instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  hostname: ${spring.application.name}
+
+

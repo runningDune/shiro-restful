@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers"
+                      value="com.example.shiro_restful.utils.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.3.64:3306/shiro-restful?useSSL=false" userId="root"
+                        password="123456">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="com.example.shiro_restful.model" targetProject="/home/wc/wc/codes/minePro/shiro-restful/src/main/java"/>
+        <sqlMapGenerator targetPackage="mapper" targetProject="/home/wc/wc/codes/minePro/shiro-restful/src/main/resources"/>
+        <javaClientGenerator targetPackage="com.example.shiro_restful.mapper" targetProject="/home/wc/wc/codes/minePro/shiro-restful/src/main/java" type="XMLMAPPER"/>
+
+
+        <table tableName="user"></table>
+        <table tableName="user_role"></table>
+        <table tableName="role"></table>
+        <table tableName="role_operator"></table>
+        <table tableName="operator"></table>
+    </context>
+</generatorConfiguration>
